@@ -1,8 +1,6 @@
-# 🎓 UIT Voice Assistant
+# 🎓 CampusQuery - Rag-based Chatbot
 
-An AI-powered **voice assistant** for UIT (University Institute of Technology) that works like Google Assistant — always listening for a wake word, answers questions using a custom knowledge base, and leverages **Ollama (llama3.2)** for versatile local AI responses.
-
----
+An AI-powered **voice assistant** build for UIT (United Institute of Technology) that works like Google Assistant — always listening for a wake word, answers questions using a custom knowledge base, and leverages **Ollama (llama3.2)** for versatile local AI responses.
 
 ## ✨ Features
 
@@ -59,7 +57,7 @@ cllg_chatbot/
 ├── assistant.py               # Core voice assistant logic
 ├── tray_app.py                # System tray application (Windows)
 ├── config.py                  # Central configuration (auto-detects Pi)
-├── UIT Data Set.docx          # Primary knowledge base ⭐
+├── UIT Data Set.docx          # Primary knowledge base 
 │
 ├── pi/                        # Raspberry Pi 4 files
 │   ├── install_pi.sh          # One-command full Pi setup
@@ -147,7 +145,7 @@ python main.py --console
 
 ---
 
-## 🎤 Usage
+## How to use it?
 
 1. **Start the app** — it runs in the system tray
 2. **Say "Hey Assistant"** — the assistant activates
@@ -189,29 +187,19 @@ Edit `config.py` to customize:
 
 ---
 
-## 🍓 Raspberry Pi 4 Deployment
+## Raspberry Pi 4/5 Deployment
 
-The assistant is fully compatible with **Raspberry Pi 4 (4GB+ RAM, 64-bit OS)** and runs as an always-on system service — just like a smart speaker.
-
-### Hardware Needed
-
-| Item | Notes |
-|---|---|
-| Raspberry Pi 4 (4GB+) | 8GB recommended for best LLM performance |
-| USB Microphone | Any USB mic (e.g., ReSpeaker, Blue Snowball) |
-| Speaker / Headphones | 3.5mm jack or USB speaker |
-| MicroSD Card (32GB+) | With Raspberry Pi OS 64-bit |
-| Power supply | Official Pi 4 USB-C adapter |
+The assistant is fully compatible with **Raspberry Pi 4/5 ** and runs as an always-on system service just like a smart speaker.
 
 ### One-Command Install
 
 ```bash
 # 1. Copy project to your Pi (via SCP, USB, or git clone)
 cd /home/pi
-git clone <your-repo-url> cllg_chatbot  # or copy the folder
+git clone <your-repo-url> CampusQuery  # or copy the folder
 
 # 2. Run the installer (does everything automatically)
-cd cllg_chatbot
+cd CampusQuery
 chmod +x pi/install_pi.sh
 sudo ./pi/install_pi.sh
 ```
@@ -246,7 +234,7 @@ sudo systemctl stop uit-assistant
 sudo systemctl disable uit-assistant
 ```
 
-### Test Audio on Pi
+### You can Test it on Pi also.
 
 Before running, verify your mic and speaker work:
 
@@ -256,7 +244,6 @@ chmod +x pi/test_audio.sh
 ```
 
 ### Pi-Specific Notes
-
 - **Audio**: Default config uses USB mic for input and 3.5mm jack for output. Edit `pi/asoundrc` if your setup differs. Run `arecord -l` to find your mic's card number.
 - **Model**: llama3.2 (3B) runs on Pi 4 with 4GB RAM. For faster responses, consider `tinyllama` or `phi`.
 - **Memory**: Close other apps. The LLM + embeddings use most of the RAM.
